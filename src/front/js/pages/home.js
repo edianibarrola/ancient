@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 import rigoImageUrl from "../../img/rigo-baby.jpg";
 import pyramidImageUrl from "../../img/sphynxFrontSmall.jpg";
 import "../../styles/home.scss";
@@ -13,7 +14,12 @@ export const Home = () => {
 				<h1>Past Point</h1>
 			</div>
 			<div className="text-center mt-2">
-				<h5>Ancient Site Locator</h5>
+				<h3>Ancient Site Locator</h3>
+			</div>
+			<div className="w-50 text-center d-flex align-content-between justify-content-around mx-auto mt-2">
+				<Link>List View </Link>
+
+				<Link>Random Site</Link>
 			</div>
 		</>
 	);

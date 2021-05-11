@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 body{
     background: url("https://res.cloudinary.com/petrep/image/upload/v1620755963/ancient/sphynxFrontBig_jalfad.jpg");
     //background: linear-gradient(#FAEBD7,#AE8D61);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;font-family: 'Special Elite', cursive;
     
 }
 h1{
+    
     font-family: 'Special Elite', cursive;
     background-color: rgba(0, 0, 0, 0.288);
     font-size: 4.5rem;
