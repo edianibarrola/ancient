@@ -13,6 +13,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
+			],
+			locations: [
+				{
+					name: "Puma Punku",
+					location: "Turkey",
+					coords: "233, 855",
+					details: "Turkey"
+				},
+				{
+					name: "Great Pryamid",
+					location: "Egypt",
+					coords: "100, 439",
+					details: "Ancient Ruins"
+				},
+				{
+					name: "Machu Pichu",
+					location: "Peru",
+					coords: "001, 004",
+					details: "Ancient Ruins"
+				}
 			]
 		},
 		actions: {
