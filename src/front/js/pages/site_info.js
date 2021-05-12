@@ -18,9 +18,10 @@ export const SiteInfo = props => {
 					style={{ border: 0 }}
 					loading="lazy"
 					allowFullScreen
-					src={`https://www.google.com/maps/embed/v1/place?key=${
-						process.env.MAPAPIKEY
-					}&maptype=satellite&q=puma+punku`}
+					// src={`https://www.google.com/maps/embed/v1/place?key=${
+					// 	process.env.MAPAPIKEY
+					// }&maptype=satellite&q=puma+punku`}
+					src={store.site.maplink}
 				/>
 			</div>
 		</div>

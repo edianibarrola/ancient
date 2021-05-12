@@ -20,21 +20,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 					location: "Turkey",
 					coords: "233, 855",
 					details: "Turkey",
-					imgurl: ""
+					imgurl: "",
+					maplink: `https://www.google.com/maps/embed/v1/place?key=${
+						process.env.MAPAPIKEY
+					}&maptype=satellite&q=puma+punku`
 				},
 				{
 					name: "Great Pryamid",
 					location: "Egypt",
 					coords: "100, 439",
 					details: "Ancient Ruins",
-					imgurl: ""
+					imgurl: "",
+					maplink: `https://www.google.com/maps/embed/v1/place?key=${
+						process.env.MAPAPIKEY
+					}&maptype=satellite&q=great+pyramid`
 				},
 				{
 					name: "Machu Pichu",
 					location: "Peru",
 					coords: "001, 004",
 					details: "Ancient Ruins",
-					imgurl: ""
+					imgurl: "",
+					maplink: `https://www.google.com/maps/embed/v1/place?key=${
+						process.env.MAPAPIKEY
+					}&maptype=satellite&q=machu+picchu+complex`
 				}
 			],
 			site: []
