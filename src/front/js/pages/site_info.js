@@ -18,7 +18,9 @@ export const SiteInfo = props => {
 					style={{ border: 0 }}
 					loading="lazy"
 					allowFullScreen
-					src="https://www.google.com/maps/embed/v1/place?key=${MAPAPIKEY}&q=Space+Needle,Seattle+WA"
+					src={`https://www.google.com/maps/embed/v1/place?key=${
+						process.env.MAPAPIKEY
+					}&q=Space+Needle,Seattle+WA`}
 				/>
 			</div>
 		</div>
