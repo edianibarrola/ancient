@@ -11,6 +11,15 @@ export const SiteInfo = props => {
 		<div className="row ">
 			<div className="col text-center">
 				<h1>{store.site.name ? store.site.name : "name unavailable"} </h1>
+				{console.log(process.env.MAPAPIKEY)}
+				<iframe
+					width="600"
+					height="450"
+					style={{ border: 0 }}
+					loading="lazy"
+					allowFullScreen
+					src="https://www.google.com/maps/embed/v1/place?key=${MAPAPIKEY}&q=Space+Needle,Seattle+WA"
+				/>
 			</div>
 		</div>
 	);
