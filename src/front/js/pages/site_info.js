@@ -20,7 +20,7 @@ export const SiteInfo = props => {
 					allowFullScreen
 					src={`https://www.google.com/maps/embed/v1/place?key=${
 						process.env.MAPAPIKEY
-					}&q=Space+Needle,Seattle+WA`}
+					}&maptype=satellite&q=puma+punku`}
 				/>
 			</div>
 		</div>
