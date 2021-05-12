@@ -19,21 +19,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 					name: "Puma Punku",
 					location: "Turkey",
 					coords: "233, 855",
-					details: "Turkey"
+					details: "Turkey",
+					imgurl: ""
 				},
 				{
 					name: "Great Pryamid",
 					location: "Egypt",
 					coords: "100, 439",
-					details: "Ancient Ruins"
+					details: "Ancient Ruins",
+					imgurl: ""
 				},
 				{
 					name: "Machu Pichu",
 					location: "Peru",
 					coords: "001, 004",
-					details: "Ancient Ruins"
+					details: "Ancient Ruins",
+					imgurl: ""
 				}
-			]
+			],
+			site: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -61,6 +65,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			setSite: item => {
+				setStore({ site: item });
 			}
 		}
 	};

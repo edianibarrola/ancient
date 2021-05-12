@@ -17,7 +17,7 @@ export const Home = () => {
 				<h3>Ancient Site Locator</h3>
 			</div>
 			<div className="w-50 text-center d-flex align-content-between justify-content-around mx-auto mt-2">
-				<Link>List View </Link>
+				<Link to="/site-list">List View </Link>
 
 				<Link>Random Site</Link>
 			</div>

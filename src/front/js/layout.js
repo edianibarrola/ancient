@@ -6,6 +6,7 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import { SiteList } from "./pages/site_list_view";
+import { SiteInfo } from "./pages/site_info";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -28,6 +29,9 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/site-list">
 							<SiteList />
+						</Route>
+						<Route exact path="/site-info">
+							<SiteInfo />
 						</Route>
 						<Route exact path="/demo">
 							<Demo />
