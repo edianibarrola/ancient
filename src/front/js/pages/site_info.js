@@ -33,10 +33,16 @@ export const SiteInfo = props => {
 						}
 					/>
 					<h3>{store.site.name}</h3>
+
 					<h5>
-						{store.site.country} {store.site.continent}
+						{store.site.country ? store.site.country : " "}{" "}
+						{store.site.continent ? store.site.continent : " "}
 					</h5>
-					<h5>{store.site.date_range_start}</h5>
+					<h5>
+						{store.site.date_range_end
+							? store.site.date_range_start + "    -    " + store.site.date_range_end
+							: store.site.date_range_start}
+					</h5>
 				</div>
 			</div>
 		</div>
