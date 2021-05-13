@@ -46,7 +46,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}&maptype=satellite&q=machu+picchu+complex`
 				}
 			],
-			site: []
+			site: [],
+			locs: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -74,6 +75,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			getSites: () => {
+				// fetching data from the backend
+				fetch(process.env.BACKEND_URL + "/api/site")
+					.then(resp => resp.json())
+					.then(data => setStore({ locs: data }))
+					.catch(error => console.log("Error loading message from backend", error));
 			},
 			setSite: item => {
 				setStore({ site: item });

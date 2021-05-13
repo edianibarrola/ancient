@@ -17,13 +17,11 @@ def handle_hello():
 
     return jsonify(response_body), 200
 
-@api.route('/site', methods=['GET'])
+@api.route('/api/site', methods=['GET'])
 def get_all_sites():
     all_sites= Site.query.all()
     all_sites = list(map(lambda x: x.serialize(), all_sites))
-    response_body = {
-        "msg": "Here are all of the Sites."
-    }
+    
     return jsonify(all_sites), 200
 
 @api.route('/site/<int:id>', methods=['GET'])
