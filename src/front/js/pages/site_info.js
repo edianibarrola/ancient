@@ -9,26 +9,28 @@ export const SiteInfo = props => {
 
 	return (
 		<div className="row ">
-			<div className="col text-center">
+			<div className="col  text-center">
 				<h1>{store.site.name ? store.site.name : "name unavailable"} </h1>
 				{console.log(process.env.MAPAPIKEY)}
-				<iframe
-					width="300"
-					height="300"
-					style={{ border: 0 }}
-					loading="lazy"
-					allowFullScreen
-					// src={`https://www.google.com/maps/embed/v1/place?key=${
-					// 	process.env.MAPAPIKEY
-					// }&maptype=satellite&q=puma+punku`}
-					src={
-						store.site.maplink
-							? store.site.maplink
-							: `https://www.google.com/maps/embed/v1/place?key=${
-									process.env.MAPAPIKEY
-							  }&maptype=satellite&q=dc+pentagram`
-					}
-				/>
+				<div className="polaroid mx-auto no-gutters">
+					<iframe
+						width="300"
+						height="300"
+						style={{ border: "1px solid black" }}
+						loading="lazy"
+						allowFullScreen
+						// src={`https://www.google.com/maps/embed/v1/place?key=${
+						// 	process.env.MAPAPIKEY
+						// }&maptype=satellite&q=puma+punku`}
+						src={
+							store.site.maplink
+								? store.site.maplink
+								: `https://www.google.com/maps/embed/v1/place?key=${
+										process.env.MAPAPIKEY
+								  }&maptype=satellite&q=stone+henge+megalith`
+						}
+					/>
+				</div>
 			</div>
 		</div>
 	);

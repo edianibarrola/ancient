@@ -16,3 +16,16 @@
         border:none;
     }
 }
+.polaroid {
+    width:350px;
+    border: 1px solid darkgrey;
+    background-color: white;
+    padding: 15px 15px 60px 15px;
+    box-shadow: 5px 10px 10px rgb(49, 49, 49);
+    
+}
+.polaroidImg{
+    padding:none;
+    margin:none;
+    border: 1px solid black;
+}
