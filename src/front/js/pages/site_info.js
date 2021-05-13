@@ -32,6 +32,7 @@ export const SiteInfo = props => {
 								  }&maptype=satellite&q=stone+henge+megalith`
 						}
 					/>
+					<h3>info here</h3>
 				</div>
 			</div>
 		</div>
