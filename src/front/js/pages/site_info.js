@@ -13,15 +13,21 @@ export const SiteInfo = props => {
 				<h1>{store.site.name ? store.site.name : "name unavailable"} </h1>
 				{console.log(process.env.MAPAPIKEY)}
 				<iframe
-					width="600"
-					height="450"
+					width="300"
+					height="300"
 					style={{ border: 0 }}
 					loading="lazy"
 					allowFullScreen
 					// src={`https://www.google.com/maps/embed/v1/place?key=${
 					// 	process.env.MAPAPIKEY
 					// }&maptype=satellite&q=puma+punku`}
-					src={store.site.maplink}
+					src={
+						store.site.maplink
+							? store.site.maplink
+							: `https://www.google.com/maps/embed/v1/place?key=${
+									process.env.MAPAPIKEY
+							  }&maptype=satellite&q=dc+pentagram`
+					}
 				/>
 			</div>
 		</div>
