@@ -7,7 +7,7 @@ export const SiteList = props => {
 	const { store, actions } = useContext(Context);
 
 	const params = useParams();
-	const loc = store.locations;
+	const loc = store.locs;
 	return (
 		<div className="row ">
 			<div className="col text-center">
@@ -19,6 +19,7 @@ export const SiteList = props => {
 								<li onClick={() => actions.setSite(item)}> {item.name} </li>
 							</Link>
 						);
+						// `https://www.google.commaps/embed/v1/place?key=${process.env.MAPAPIKEY}&maptype=satellite&q=goebekli+tepe`
 					})}
 				</ul>
 			</div>

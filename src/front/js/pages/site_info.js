@@ -23,8 +23,10 @@ export const SiteInfo = props => {
 						// 	process.env.MAPAPIKEY
 						// }&maptype=satellite&q=puma+punku`}
 						src={
-							store.site.maplink
-								? store.site.maplink
+							store.site.map_link
+								? `https://www.google.com/maps/embed/v1/place?key=${
+										process.env.MAPAPIKEY
+								  }&maptype=satellite&q=${store.site.map_link}`
 								: `https://www.google.com/maps/embed/v1/place?key=${
 										process.env.MAPAPIKEY
 								  }&maptype=satellite&q=stone+henge+megalith`
