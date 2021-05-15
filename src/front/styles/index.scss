@@ -32,12 +32,13 @@
     border: 1px solid black;
 }
 .infocol{
-    background-image: url("https://res.cloudinary.com/petrep/image/upload/v1620946792/oldmarbletexture.png");
-    background-size: 150%;
+    background-image: url("https://res.cloudinary.com/petrep/image/upload/c_crop,w_1022/v1620946792/oldmarbletexture.png");
+    background-size: cover;
+    background-repeat: no-repeat;
     background-position: center center;
     height: 100%;
-    border: 1px solid darkgrey;
     
+    border: 1px solid darkgrey;
     padding: 15px 15px 15px 15px;
     box-shadow: 5px 10px 10px rgb(49, 49, 49);
     font-family: 'Homemade Apple', cursive;
