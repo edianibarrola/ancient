@@ -24,13 +24,11 @@ export const SiteList = props => {
 							return (
 								<Link to={{ pathname: "/site-info" }} key={index}>
 									<div className="col my-3  mx-auto" onClick={() => actions.setSite(item)}>
-										<div className="list-name-text ">
+										{/* <div className="list-name-text ">
 											<h3>{item.name}</h3>
-										</div>
+										</div> */}
 										<div className="list-details-text">
 											{/* <h5>{item.continent + " - " + item.country}</h5> */}
-											<h5>{item.continent}</h5>
-											<h5>{item.country}</h5>
 										</div>
 										<div className="polaroid">
 											<img
@@ -39,8 +37,13 @@ export const SiteList = props => {
 												src={item.img_url}
 												alt={item.name + " photograph"}
 											/>
-
-											<h3 className="centered-img-text polaroid-thumb">{item.name}</h3>
+											<div>
+												<h3 className="centered-img-text  polaroid-thumb">{item.name}</h3>
+												<h5 className=" polaroid-thumb">
+													{item.continent}: {item.country}
+												</h5>
+												<h5>{item.date_range_start}</h5>
+											</div>
 										</div>
 									</div>
 								</Link>

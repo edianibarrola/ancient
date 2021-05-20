@@ -3,6 +3,13 @@
 */
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+body{
+    background: url("https://res.cloudinary.com/petrep/image/upload/v1620755963/ancient/sphynxFrontBig_jalfad.jpg");
+    //background: linear-gradient(#FAEBD7,#AE8D61);
+    background-repeat: no-repeat;
+    background-size: cover;font-family: 'Special Elite', cursive;
+    
+}
 .navbar{
     font-size:2rem;
     padding-left:2rem;
@@ -53,12 +60,16 @@
     background-color: rgba(0, 0, 0, 0.288);
     
     box-shadow:  0px 5px 15px rgba(0, 0, 0, 0.404);
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .centered-img-text{
     position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  
  font-family: 'Special Elite', cursive;
     
         color:white;
@@ -68,4 +79,7 @@
 }
 .darken-img{
     filter: brightness(50%);
+}
+.polaroid-thumb{
+    margin-top:15px;
 }

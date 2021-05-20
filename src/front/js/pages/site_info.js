@@ -48,6 +48,8 @@ export const SiteInfo = props => {
 				</div>
 				<div className="col-4 infocol ">
 					<p>{store.site.details}</p>
+
+					<img src={store.site.img_url} style={{ maxWidth: "100%" }} alt="photo of the site" />
 				</div>
 			</div>
 		</>
