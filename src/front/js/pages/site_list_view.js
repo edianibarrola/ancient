@@ -9,19 +9,46 @@ export const SiteList = props => {
 	const params = useParams();
 	const loc = store.locs;
 	return (
-		<div className="row ">
-			<div className="col text-center">
-				<h1>List of all sites </h1>
-				<ul>
-					{loc.map((item, index) => {
-						return (
-							<Link to={{ pathname: "/site-info" }} key={index}>
-								<li onClick={() => actions.setSite(item)}> {item.name} </li>
-							</Link>
-						);
-						// `https://www.google.commaps/embed/v1/place?key=${process.env.MAPAPIKEY}&maptype=satellite&q=goebekli+tepe`
-					})}
-				</ul>
+		<div className="container">
+			<div className="row ">
+				<div className="col text-center">
+					<h1>List of all sites </h1>
+					<div className="row">
+						{}
+						<div className="col">
+							<input type="dropdown" />
+						</div>
+					</div>
+					<div className="row   list-row">
+						{loc.map((item, index) => {
+							return (
+								<Link to={{ pathname: "/site-info" }} key={index}>
+									<div className="col my-3  mx-auto" onClick={() => actions.setSite(item)}>
+										<div className="list-name-text ">
+											<h3>{item.name}</h3>
+										</div>
+										<div className="list-details-text">
+											{/* <h5>{item.continent + " - " + item.country}</h5> */}
+											<h5>{item.continent}</h5>
+											<h5>{item.country}</h5>
+										</div>
+										<div className="polaroid">
+											<img
+												className="list-img-thumb  darken-img align-self-center"
+												style={{ maxHeight: "10vh" }}
+												src={item.img_url}
+												alt={item.name + " photograph"}
+											/>
+
+											<h3 className="centered-img-text polaroid-thumb">{item.name}</h3>
+										</div>
+									</div>
+								</Link>
+							);
+							// `https://www.google.commaps/embed/v1/place?key=${process.env.MAPAPIKEY}&maptype=satellite&q=goebekli+tepe`
+						})}
+					</div>
+				</div>
 			</div>
 		</div>
 	);

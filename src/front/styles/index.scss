@@ -1,6 +1,7 @@
 /* 
     General Styles
 */
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
 .navbar{
     font-size:2rem;
@@ -42,4 +43,29 @@
     padding: 15px 15px 15px 15px;
     box-shadow: 5px 10px 10px rgb(49, 49, 49);
     font-family: 'Homemade Apple', cursive;
+}
+.list-img-thumb{
+    min-height: 25vh;
+    width: 100%;
+    object-fit: cover;
+}
+.list-row{
+    background-color: rgba(0, 0, 0, 0.288);
+    
+    box-shadow:  0px 5px 15px rgba(0, 0, 0, 0.404);
+}
+.centered-img-text{
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ font-family: 'Special Elite', cursive;
+    
+        color:white;
+        font-weight: bolder;
+        text-shadow: 1px black;
+    
+}
+.darken-img{
+    filter: brightness(50%);
 }
