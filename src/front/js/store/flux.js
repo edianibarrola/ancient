@@ -47,7 +47,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			site: [],
-			locs: []
+			locs: [],
+			filterBy: ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -85,6 +86,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			setSite: item => {
 				setStore({ site: item });
+			},
+			setFilterBy: item => {
+				setStore({ filterBy: item });
 			}
 		}
 	};

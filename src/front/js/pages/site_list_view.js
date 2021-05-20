@@ -8,6 +8,10 @@ export const SiteList = props => {
 
 	const params = useParams();
 	const loc = store.locs;
+	const handleInputChange = input => {
+		actions.setFilterBy(input);
+	};
+
 	return (
 		<div className="container">
 			<div className="row ">
@@ -16,7 +20,14 @@ export const SiteList = props => {
 					<div className="row">
 						{}
 						<div className="col">
-							<input type="dropdown" />
+							<input
+								type="text"
+								placeholder="Filter..."
+								onChange={e => {
+									handleInputChange(e.target.value);
+								}}
+							/>
+							{store.filterBy}
 						</div>
 					</div>
 					<div className="row   list-row">
