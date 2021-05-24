@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { SignUp } from "../component/signUpModal";
+import Button from "react-bootstrap/Button";
 
 export const SignIn = props => {
 	const { store, actions } = useContext(Context);
@@ -26,7 +28,7 @@ export const SignIn = props => {
 						</label>
 					</div>
 					<div className="text-center">
-						<Link to="/sign-up">Not registered yet? Sign up here!</Link>
+						<SignUp />
 					</div>
 				</form>
 			</div>

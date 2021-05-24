@@ -83,3 +83,14 @@ body{
 .polaroid-thumb{
     margin-top:15px;
 }
+.modal-body{
+    text-align: center;
+}
+.modal-content{
+    background-image: url("https://res.cloudinary.com/petrep/image/upload/c_crop,w_1022/v1620946792/oldmarbletexture.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+    align-items: center;
+}
