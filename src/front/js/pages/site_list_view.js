@@ -8,6 +8,7 @@ export const SiteList = props => {
 
 	const params = useParams();
 	const loc = store.locs;
+
 	const handleInputChange = input => {
 		actions.setFilterBy(input);
 	};
@@ -27,7 +28,7 @@ export const SiteList = props => {
 									handleInputChange(e.target.value);
 								}}
 							/>
-							{store.filterBy}
+							<button onClick={e => actions.setFilterByArray()}>Search</button>
 						</div>
 					</div>
 					<div className="row   list-row">

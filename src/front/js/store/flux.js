@@ -48,7 +48,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 			site: [],
 			locs: [],
-			filterBy: ""
+			filterBy: "",
+			filteredList: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -89,6 +90,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			setFilterBy: item => {
 				setStore({ filterBy: item });
+			},
+			setFilterByArray: () => {
+				const store = getStore();
+				console.log("ok");
+				let filt = store.filterBy;
+				let filtered = store.locs.filter(item => item.country.includes({ filt }));
+				setStore({ filteredList: filtered });
+				console.log(filt);
+				console.log(store.filteredList);
 			}
 		}
 	};
