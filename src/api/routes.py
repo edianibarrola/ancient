@@ -1,21 +1,28 @@
 """
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
+import os
 from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Site
 from api.utils import generate_sitemap, APIException
+from flask_jwt_extended import create_access_token
+
 
 api = Blueprint('api', __name__)
 
 
-@api.route('/hello', methods=['POST', 'GET'])
-def handle_hello():
+@api.route('/token', methods=['POST'])
+def create_token():
+    username = request.json.get("username", None)
+    password = request.json.get("password", None)
 
-    response_body = {
-        "message": "Hello! I'm a message that came from the backend"
-    }
+    user = User.query.filter_by(username=username, password=password).first()
+    if user is None:
+        return jsonify({"msg": "Bad usernme or password"}), 401
+    access_token = create_access_token(identity=user.id)
+    return jsonify({"token": access_token, "user_id": user.id})
 
-    return jsonify(response_body), 200
+    
 
 @api.route('/site', methods=['GET'])
 def get_all_sites():
