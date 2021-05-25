@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 
 export const SiteList = props => {
 	const { store, actions } = useContext(Context);
-
+	const [search, setSearch] = useState("");
 	const params = useParams();
 	const loc = store.locs;
 
@@ -25,43 +25,79 @@ export const SiteList = props => {
 								type="text"
 								placeholder="Filter..."
 								onChange={e => {
-									handleInputChange(e.target.value);
+									setSearch(e.target.value);
 								}}
 							/>
-							<button onClick={e => actions.setFilterByArray()}>Search</button>
+							<button onClick={e => actions.setFilterByArray(search)}>Filter</button>
+							<button onClick={e => actions.setFilterByArray("")}>Full List</button>
 						</div>
 					</div>
 					<div className="row   list-row">
-						{loc.map((item, index) => {
-							return (
-								<Link to={{ pathname: "/site-info" }} key={index}>
-									<div className="col my-3  mx-auto" onClick={() => actions.setSite(item)}>
-										{/* <div className="list-name-text ">
+						{store.filteredList != ""
+							? store.filteredList.map((item, index) => {
+									return (
+										<Link to={{ pathname: "/site-info" }} key={index}>
+											<div className="col my-3  mx-auto" onClick={() => actions.setSite(item)}>
+												{/* <div className="list-name-text ">
 											<h3>{item.name}</h3>
 										</div> */}
-										<div className="list-details-text">
-											{/* <h5>{item.continent + " - " + item.country}</h5> */}
-										</div>
-										<div className="polaroid">
-											<img
-												className="list-img-thumb  darken-img align-self-center"
-												style={{ maxHeight: "10vh" }}
-												src={item.img_url}
-												alt={item.name + " photograph"}
-											/>
-											<div>
-												<h3 className="centered-img-text  polaroid-thumb">{item.name}</h3>
-												<h5 className=" polaroid-thumb">
-													{item.continent}: {item.country}
-												</h5>
-												<h5>{item.date_range_start}</h5>
+												<div className="list-details-text">
+													{/* <h5>{item.continent + " - " + item.country}</h5> */}
+												</div>
+												<div className="polaroid">
+													<img
+														className="list-img-thumb  darken-img align-self-center"
+														style={{ maxHeight: "10vh" }}
+														src={item.img_url}
+														alt={item.name + " photograph"}
+													/>
+													<div>
+														<h3 className="centered-img-text  polaroid-thumb">
+															{item.name}
+														</h3>
+														<h5 className=" polaroid-thumb">
+															{item.continent}: {item.country}
+														</h5>
+														<h5>{item.date_range_start}</h5>
+													</div>
+												</div>
 											</div>
-										</div>
-									</div>
-								</Link>
-							);
-							// `https://www.google.commaps/embed/v1/place?key=${process.env.MAPAPIKEY}&maptype=satellite&q=goebekli+tepe`
-						})}
+										</Link>
+									);
+									// `https://www.google.commaps/embed/v1/place?key=${process.env.MAPAPIKEY}&maptype=satellite&q=goebekli+tepe`
+							  })
+							: loc.map((item, index) => {
+									return (
+										<Link to={{ pathname: "/site-info" }} key={index}>
+											<div className="col my-3  mx-auto" onClick={() => actions.setSite(item)}>
+												{/* <div className="list-name-text ">
+											<h3>{item.name}</h3>
+										</div> */}
+												<div className="list-details-text">
+													{/* <h5>{item.continent + " - " + item.country}</h5> */}
+												</div>
+												<div className="polaroid">
+													<img
+														className="list-img-thumb  darken-img align-self-center"
+														style={{ maxHeight: "10vh" }}
+														src={item.img_url}
+														alt={item.name + " photograph"}
+													/>
+													<div>
+														<h3 className="centered-img-text  polaroid-thumb">
+															{item.name}
+														</h3>
+														<h5 className=" polaroid-thumb">
+															{item.continent}: {item.country}
+														</h5>
+														<h5>{item.date_range_start}</h5>
+													</div>
+												</div>
+											</div>
+										</Link>
+									);
+									// `https://www.google.commaps/embed/v1/place?key=${process.env.MAPAPIKEY}&maptype=satellite&q=goebekli+tepe`
+							  })}
 					</div>
 				</div>
 			</div>

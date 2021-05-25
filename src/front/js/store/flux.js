@@ -91,14 +91,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 			setFilterBy: item => {
 				setStore({ filterBy: item });
 			},
-			setFilterByArray: () => {
-				const store = getStore();
-				console.log("ok");
-				let filt = store.filterBy;
-				let filtered = store.locs.filter(item => item.country.includes({ filt }));
+			setFilterByArray: search => {
+				let store = getStore();
+				let filt = search;
+				let filtered = store.locs.filter(location =>
+					Object.values(location)
+						.toString()
+						.toLowerCase()
+						.includes(filt.toLowerCase())
+				);
+				//let filtered = store.locs.filter(item => item.country.includes({ filt }));
 				setStore({ filteredList: filtered });
-				console.log(filt);
-				console.log(store.filteredList);
+
+				//console.log(store.filteredList);
 			}
 		}
 	};
