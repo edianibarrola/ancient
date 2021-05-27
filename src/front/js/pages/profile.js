@@ -5,7 +5,11 @@ import { Context } from "../store/appContext";
 
 export const Profile = () => {
 	const { store, actions } = useContext(Context);
-
+	useEffect(() => {
+		if (store.user.token) {
+			actions.getProfile();
+		}
+	}, []);
 	return (
 		<div className="container">
 			<div className="row ">

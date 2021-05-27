@@ -6,6 +6,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Site
 from api.utils import generate_sitemap, APIException
 from flask_jwt_extended import create_access_token
+from flask_jwt_extended import jwt_required
 
 
 api = Blueprint('api', __name__)
@@ -39,3 +40,14 @@ def get_one_sites(id):
         "msg": "Here is the requested Site."
     }
     return jsonify(one_site), 200
+
+@api.route('/profile/<int:user_id>', methods=['GET'])
+@jwt_required()
+def get_one_user(user_id):
+    one_user= User.query.get(user_id).serialize()
+    
+    response_body = {
+        "msg": "Here is the requested user.",
+        "user": one_user
+    }
+    return jsonify(response_body), 200

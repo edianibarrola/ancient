@@ -49,7 +49,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 			site: [],
 			locs: [],
 			filterBy: "",
-			filteredList: []
+			filteredList: [],
+			test: null,
+			user: {
+				firstName: "first",
+				lastName: "last",
+				username: "username",
+				token: null,
+				id: null,
+				loggedIn: false
+			}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -78,6 +87,31 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
+			getToken: (username, password) => {
+				// fetching token from the backend
+				fetch(process.env.BACKEND_URL + "/api/token", {
+					method: "POST",
+					cors: "no-cors",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify({
+						username: username,
+						password: password
+					})
+				})
+					.then(resp => resp.json())
+					.then(data =>
+						setStore({
+							user: {
+								token: data.token,
+								id: data.user_id,
+								loggedIn: true
+							}
+						})
+					)
+					.catch(error => console.log("Error loading message from backend", error));
+			},
 			getSites: () => {
 				// fetching data from the backend
 				fetch(process.env.BACKEND_URL + "/api/site")
@@ -104,6 +138,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ filteredList: filtered });
 
 				//console.log(store.filteredList);
+			},
+			getProfile: () => {
+				// fetching data from the backend
+				const store = getStore();
+				fetch(process.env.BACKEND_URL + "/api/profile/1", {
+					headers: {
+						"Content-Type": "application/json",
+						authorization: `Bearer ${store.user.token}`
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => setStore({ test: data }))
+					.catch(error => console.log("Error loading message from backend", error));
 			}
 		}
 	};

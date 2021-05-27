@@ -7,6 +7,9 @@ import Button from "react-bootstrap/Button";
 
 export const SignIn = props => {
 	const { store, actions } = useContext(Context);
+	const [usernameInput, setUsernameInput] = useState("");
+	const [userPasswordInput, setUserPasswordInput] = useState("");
+
 	const params = useParams();
 
 	return (
@@ -16,15 +19,35 @@ export const SignIn = props => {
 				<form>
 					<div className="col  text-center d-flex justify-content-end">
 						<label>User Name:</label>
-						<input type="text" name="name" />
+						<input
+							type="text"
+							name="name"
+							value={usernameInput}
+							onChange={e => {
+								setUsernameInput(e.target.value);
+							}}
+						/>
 					</div>
 					<div className="col text-center d-flex justify-content-end">
 						<label>Password:</label>
-						<input type="password" name="password" />
+						<input
+							type="password"
+							name="password"
+							value={userPasswordInput}
+							onChange={e => {
+								setUserPasswordInput(e.target.value);
+							}}
+						/>
 					</div>
 					<div className="col text-center d-flex justify-content-end">
 						<label>
-							<button type="submit">Submit</button>
+							<Link to="/profile">
+								<button
+									type="button"
+									onClick={() => actions.getToken(usernameInput, userPasswordInput)}>
+									Submit
+								</button>
+							</Link>
 						</label>
 					</div>
 					<div className="text-center">
