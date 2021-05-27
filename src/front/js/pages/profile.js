@@ -5,10 +5,13 @@ import { Context } from "../store/appContext";
 
 export const Profile = () => {
 	const { store, actions } = useContext(Context);
+	const [profile, setProfile] = useState(null);
 	useEffect(() => {
-		if (store.user.token) {
-			actions.getProfile();
-		}
+		const fetchData = async () => {
+			const results = await actions.getProfile();
+			setProfile(results);
+		};
+		fetchData();
 	}, []);
 	return (
 		<div className="container">

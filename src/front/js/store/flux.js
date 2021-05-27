@@ -144,6 +144,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const store = getStore();
 				fetch(process.env.BACKEND_URL + "/api/profile/1", {
 					headers: {
+						method: "POST",
 						"Content-Type": "application/json",
 						authorization: `Bearer ${store.user.token}`
 					}
