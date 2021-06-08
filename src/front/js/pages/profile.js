@@ -32,22 +32,17 @@ export const Profile = () => {
 					<div className="row  align-items-center">
 						<div className="col-4 text-center">First Name: </div>
 						<div className="col-8">
-							<input className="profileInput" type="text" placeholder="edian " size="50" />
+							<input className="profileInput" type="text" placeholder="first name" size="50" />
 						</div>
 
 						<div className="col-4 text-center">Last Name: </div>
 						<div className="col-8">
-							<input className="profileInput" type="text" placeholder="ibarrola" size="50" />
+							<input className="profileInput" type="text" placeholder="last name" size="50" />
 						</div>
 
 						<div className="col-4 text-center">Email: </div>
 						<div className="col-8">
-							<input
-								className="profileInput"
-								type="text"
-								placeholder="edianibarrola@gmail.com"
-								size="50"
-							/>
+							<input className="profileInput" type="text" placeholder="email" size="50" />
 						</div>
 						<div className="col-12 d-flex justify-content-center">
 							<button>Save Changes</button>

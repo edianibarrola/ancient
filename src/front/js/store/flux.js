@@ -56,7 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				lastName: "last",
 				username: "username",
 				token: null,
-				id: null,
+				user_id: null,
 				loggedIn: false
 			}
 		},
@@ -87,30 +87,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				//reset the global store
 				setStore({ demo: demo });
 			},
-			getToken: (username, password) => {
+			getToken: async (username, password) => {
 				// fetching token from the backend
-				fetch(process.env.BACKEND_URL + "/api/token", {
-					method: "POST",
-					cors: "no-cors",
-					headers: {
-						"Content-Type": "application/json"
-					},
-					body: JSON.stringify({
-						username: username,
-						password: password
-					})
-				})
-					.then(resp => resp.json())
-					.then(data =>
-						setStore({
-							user: {
-								token: data.token,
-								id: data.user_id,
-								loggedIn: true
-							}
+				try {
+					const resp = await fetch(process.env.BACKEND_URL + "/api/token", {
+						method: "POST",
+						cors: "no-cors",
+						headers: {
+							"Content-Type": "application/json"
+						},
+						body: JSON.stringify({
+							username: username,
+							password: password
 						})
-					)
-					.catch(error => console.log("Error loading message from backend", error));
+					});
+					const data = await resp.json();
+
+					localStorage.setItem(
+						"session",
+
+						JSON.stringify({
+							token: data.token,
+							user_id: data.user_id
+						})
+					);
+					return true;
+				} catch (error) {
+					console.log("Error loading message from backend", error);
+					throw "Invalid name or pw";
+				}
 			},
 			getSites: () => {
 				// fetching data from the backend

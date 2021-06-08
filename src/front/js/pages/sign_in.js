@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { SignUp } from "../component/signUpModal";
 import Button from "react-bootstrap/Button";
@@ -9,6 +9,7 @@ export const SignIn = props => {
 	const { store, actions } = useContext(Context);
 	const [usernameInput, setUsernameInput] = useState("");
 	const [userPasswordInput, setUserPasswordInput] = useState("");
+	const history = useHistory();
 
 	const params = useParams();
 
@@ -41,13 +42,18 @@ export const SignIn = props => {
 					</div>
 					<div className="col text-center d-flex justify-content-end">
 						<label>
-							<Link to="/profile">
-								<button
-									type="button"
-									onClick={() => actions.getToken(usernameInput, userPasswordInput)}>
-									Submit
-								</button>
-							</Link>
+							{/* <Link to="/profile"> */}
+							<button
+								type="button"
+								onClick={() =>
+									actions
+										.getToken(usernameInput, userPasswordInput)
+										.then(() => history.push("/profile"))
+										.catch(msg => alert(msg))
+								}>
+								Submit
+							</button>
+							{/* </Link> */}
 						</label>
 					</div>
 					<div className="text-center">
