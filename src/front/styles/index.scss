@@ -26,6 +26,7 @@ body{
     }
 }
 .polaroid {
+    
     width:350px;
     border: 1px solid darkgrey;
     background-color: white;
@@ -44,8 +45,8 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    height: 100%;
     
+    width:400px;
     border: 1px solid darkgrey;
     padding: 15px 15px 15px 15px;
     box-shadow: 5px 10px 10px rgb(49, 49, 49);
@@ -99,4 +100,10 @@ body{
 }
 .profileInput{
     padding:15px;
+}
+.siteInfoImage{
+   width:100%;
+   height:300px;
+    object-fit:scale-down; 
+    
 }
